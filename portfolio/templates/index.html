@@ -1,0 +1,9 @@
+<html>
+    <body>
+    <h2>Contact</h2>
+    <form method="post" class="contact_form" id="contact_form">
+        {% csrf_token %}
+        {{form.as_p}}
+    </form>
+    </body>
+</html>
