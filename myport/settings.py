@@ -11,7 +11,7 @@ SECRET_KEY = config('SECRET_KEY', default="secret_key")
 
 DEBUG = config('DEBUG', default=True)
 
-ALLOWED_HOSTS = ['SukritaEarn.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['SukritaEarn.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -108,5 +108,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
 ]
-
-STATIC_ROOT = '/home/SukritaEarn/my-portfolio/portfolio/static'
