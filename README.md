@@ -1,9 +1,6 @@
 # My-Portfolio
 
-## Description
-
 *This portfolio consists of my profile, skills, experiences, projects, and activites that I experienced so far. I hope that this portfolio will be useful and be a foundation to improve my education and work in the future.*
-
 
 ## How to Run
 
@@ -31,5 +28,5 @@
         
         http://127.0.0.1:8000/
 
-## Created by 
+### Created by 
 Sukrita Kittipitayakorn ID: 6110546062
