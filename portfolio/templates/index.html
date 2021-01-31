@@ -1,9 +1,475 @@
-<html>
-    <body>
-    <h2>Contact</h2>
-    <form method="post" class="contact_form" id="contact_form">
-        {% csrf_token %}
-        {{form.as_p}}
-    </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sukrita's Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Template CSS File -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" rel="stylesheet">
+  <link href='{% static "/css/style.css" %}' rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="static/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light text-center"><a href="index.html">Sukrita</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sukrita.earn/" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/skrt_earn/" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a target="_blank" rel="noopener noreferrer" href=mailto:sukritaearn@gmail.com class="mail"><i class="bx bx-mail-send"></i></a>
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/SukritaEarn" class="github"><i class="bx bxl-github"></i></a>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="active"><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#resume"><i class="bx bx-pencil"></i> <span>Experiences</span></a></li>
+          <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
+          <li><a href="#services"><i class="bx bx-joystick"></i>Activities and Hobbies</a></li>
+          <li><a href="#contact"><i class="bx bx-envelope"></i>Contact</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+    </div>
+  </header><!-- End Header -->
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success hero-pop" id="popUp">
+      <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Sukrita Kittipitayakorn</h1>
+      <h2>Software engineering student</h2>
+      <p>I'm <span class="typed" data-typed-items="Creative, Hard-working, Optimistic, Diligent"></span></p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+          <span>Main information about me</span>
+        </div>
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img style="border-radius:30px" src="static/img/profile-img.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="content" data-aos="fade-left">
+            <h3>I'm Sukrita Kittipitayakorn</h3>
+            <p>
+              Hi! My name is <strong>Sukrita Kittipitayakorn</strong>. I am a software and knowledge engineering student at Kasetsart University 
+              I'm creative and hard-working. With experiences in accessible UI design and extensive full-stack development.
+              I have acquired the skills and knowledge necessary to make projects a success. 
+              I enjoy every step of the design process, from discussion and collaboration to concept and execution.
+            </p>
+              <div class="about_short_contact_wrap">
+                <ul>
+                  <li><span><label>Birthday:</label> 13 February 2000</span></li>
+                  <li><span><label>Age:</label> <a id="age"></a></span></li>
+                  <li><span><label>Study:</label> Kasetsart University</span></li>
+                  <li><span><label>Degree:</label> Bachelor</span></li>
+                  <li><span><label>Email:</label> <a href=mailto:sukritaearn@gmail.com">sukritaearn@gmail.com</a></span></li>
+                  <li><span><label>Phone:</label> +66 9 5729 6103</span></li>	
+                  <li><span><label>City:</label> Nonthaburi, Thailand</span></li>
+                  <li><span><label>Interests:</label> Game, Music</span></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills</h2>
+          <span>Some about my abilities</span>
+        </div>
+        
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="skill-flters">
+              <li data-filter=".filter-programming" class="filter-active">Programming</li>
+              <li data-filter=".filter-web-design">Web design</li>
+              <li data-filter=".filter-data">Data analytics</li>
+              <li data-filter=".filter-microsoft">Microsoft</li>
+              <li data-filter=".filter-language">Language</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row skill-container" data-aos="fade-up">
+
+          <div class="skill-item filter-programming">
+            <div class="skill-pic"><img src="static/img/logo/programming.png" class="img-fluid" alt=""></div>
+            <div class="skills-content">
+              <div data-aos="fade-up" data-aos-delay="100">
+                <div class="progress">
+                  <span class="skill">Python <i class="val">80%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="progress">
+                  <span class="skill">C++ <i class="val">55%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="progress">
+                  <span class="skill">Java <i class="val">70%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="skill-item filter-web-design">
+            <div class="skill-pic"><img src="static/img/logo/web.png" class="img-fluid" alt=""></div>
+            <div class="skills-content">
+              <div data-aos="fade-up" data-aos-delay="100">
+                <div class="progress">
+
+                  <span class="skill">HTML <i class="val">90%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="progress">
+                  <span class="skill">CSS <i class="val">90%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="progress">
+                  <span class="skill">Javascript <i class="val">60%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="progress">
+                  <span class="skill">Django <i class="val">65%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-item filter-microsoft">
+            <div class="skill-pic"><img src="static/img/logo/microsoft.png" class="img-fluid" alt=""></div>
+            <div class="skills-content">
+              <div data-aos="fade-up" data-aos-delay="100">
+                <div class="progress">
+                  <span class="skill">Word <i class="val">100%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="progress">
+                  <span class="skill">Powerpoint <i class="val">100%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="progress">
+                  <span class="skill">Excel <i class="val">95%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-item filter-data">
+            <div class="skill-pic"><img src="static/img/logo/data.png" class="img-fluid" alt=""></div>
+            <div class="skills-content">
+              <div data-aos="fade-up" data-aos-delay="100">
+                <div class="progress">
+                  <span class="skill">SQL <i class="val">85%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="progress">
+                  <span class="skill">Tableau <i class="val">80%</i></span>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-item filter-language">
+            <div class="skill-pic">
+              <img src="static/img/logo/thai.png" class="img-fluid" alt="">
+              <p></p>
+              <img src="static/img/logo/eng.png" class="img-fluid" alt="">
+            </div>
+            <div class="skills-content">
+              <div data-aos="fade-up">
+                  <span class="skill"><strong>Thai</strong></span>
+                  <p>Native Language</p>
+                  <span class="skill"><strong>English</strong></span>
+                    <li>Intermediate Listener</li> 
+                    <li>Novice Speaker</li>
+                    <li>Advanced Reading and Writing</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Experiences</h2>
+          <span>My education and experiences</span>
+        </div>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Math &amp; Science English Program</h4>
+              <h5>2015 - 2017</h5>
+              <p><em>Debsirin Nonthaburi School, Thailand</em></p>
+              <p>I studied in high school at Debsirin Nonthaburi. My major is Math and Science english program which studied Math, Physics, Chemistry and Biology in English along with other subjects in Thai.</p>
+            </div>
+            <div class="resume-item">
+              <h4>Software &amp; Knowledge Engineering</h4>
+              <h5>2018 - Present</h5>
+              <p><em>Kasetsart University, Thailand</em></p>
+              <p>I am a third year student at Kasetsart University. In an international undergraduate program, my major is Software and Knowledge Engineering, which learn about programming, knowledge management, data analytics, software architecture, and etc.</p>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Experience</h3>
+            <div class="resume-item">
+              <h4>Participated in eXceed camp</h4>
+              <h5>9-14 July 2019</h5>
+              <p><em>Kasetsart University, Thailand</em></p>
+              <ul>
+                <li>Camp for developing software, hardware and collaboration skills</li>
+                <li>Created a software for people who have mental disorder</li>
+                <li>Worked as team of 5 members, 2 members working on software, 3 members working on hardware</li>
+                <li>Responsible for developing and implementing the graphic, layout, and production materials</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <span>Check out my latest projects and works</span>
+        </div>
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-freshman">Freshman</li>
+              <li data-filter=".filter-sophomore">Sophomore</li>
+              <li data-filter=".filter-junior">Junior</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-freshman">
+            <div class="portfolio-wrap">
+              <img src="static/img/portfolio/port1-1-1.png" class="img-fluid" alt="Fighting the monster">
+              <div class="portfolio-links">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/SukritaEarn/Fighting-the-monster" title="Repository"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-sophomore">
+            <div class="portfolio-wrap">
+              <img src="static/img/portfolio/port2-1-1.png" class="img-fluid" alt="Overcome with me">
+              <div class="portfolio-links">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/OreganoTea/phobia_project" title="Repository"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-sophomore">
+            <div class="portfolio-wrap">
+              <img src="static/img/portfolio/port2-2-1.png" class="img-fluid" alt="KEM1">
+              <div class="portfolio-links">
+                <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1jrn371_QrRtAEAeCtE7DQ7UmHqG2Qccv7Utg958IUtc/edit" title="Document"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-sophomore">
+            <div class="portfolio-wrap">
+              <img src="static/img/portfolio/port2-3-1.png" class="img-fluid" alt="Riddle Me This">
+              <div class="portfolio-links">
+                <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1jrn371_QrRtAEAeCtE7DQ7UmHqG2Qccv7Utg958IUtc/edit" title="Repository"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-junior">
+            <div class="portfolio-wrap">
+              <img src="static/img/portfolio/port3-1-1.png" class="img-fluid" alt="Covid19 Around the World">
+              <div class="portfolio-links">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/EJEunjiyaz/Covid19AroundTheWorld" title="Repository"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Interests &amp; Activities</h2>
+          <span>Favourite things to do in my free time</span>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="icofont-airplane"></i></div>
+            <h4 class="title">Travelling</h4>
+            <p class="description">Planning and executing trip in Asia and Europe, in order to explore different culture and improve communication skill.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="icofont-speech-comments"></i></div>
+            <h4 class="title">Learning language</h4>
+            <p class="description">Self-study Korea and Japanese because of my interests in K-pop, Korean drama and animation</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="icofont-paint"></i></div>
+            <h4 class="title">Art</h4>
+            <p class="description">Interested in graphic designing, drawing and would like to learn more technique in creating art.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="icofont-music"></i></div>
+            <h4 class="title">Music</h4>
+            <p class="description">Like playing piano, occasionally play on my free time and listening to musics</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="icofont-ui-game"></i></div>
+            <h4 class="title">Gaming</h4>
+            <p class="description">Like playing both computer and mobile games. My favourite game types are MOBA, RPG and puzzle game</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon"><i class="icofont-book"></i></div>
+            <h4 class="title">Reading</h4>
+            <p class="description">Love reading novel and comic books, My favourite book types is mystery and science fiction</p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <span>Let's get in touch</span>
+        </div>
+        <div class="row" data-aos="fade-in">
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps?ll=13.847569,100.569619&z=16&t=m&hl=en&gl=TH&mapclient=embed&cid=1081146155368919408"><i class="icofont-google-map"></i></a>
+                <h4>Location:</h4>
+                <p>60 Thanon Ngamwongwan, Lat Yao, Chatuchak, Bangkok 10900, Thailand</p>
+              </div>
+              <div class="email">
+                <a target="_blank" rel="noopener noreferrer" href=mailto:sukritaearn@gmail.com><i class="icofont-envelope"></i></a>
+                <h4>Email:</h4>
+                <p>sukritaearn@gmail.com</p>
+              </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.8578717962814!2d100.56743041500565!3d13.847568690285513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29cde06012b57%3A0xf0100b33d0b3170!2sKasetsart%20University!5e0!3m2!1sen!2sth!4v1612049887731!5m2!1sen!2sth" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form method="post" class="contact_form, email-form" id="contact_form">
+              {% csrf_token %}
+              {{form.as_p}}
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy;  Copyright 2021
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Template JS File -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="static/js/main.js"></script>
+  <script>$('#popUp').delay(2000).fadeOut(1000);  </script>
+  
+</body>
+
 </html>
+
+  <!-- =======================================================
+  * Template Name: iPortfolio - v2.0.3
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->

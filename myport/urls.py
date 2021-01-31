@@ -18,7 +18,7 @@ from django.urls import include, path
 from portfolio import views
 
 urlpatterns = [
-    path('index/', include('portfolio.urls')),
+    path('', include('portfolio.urls')),
     path('admin/', admin.site.urls),
-    path('', views.redirect_to_index),
+    path('index/', views.redirect_to_index),
 ]
